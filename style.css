@@ -27,7 +27,6 @@ body {
 html[dir='rtl'] body {
   direction: rtl;
 }
-
 html[dir='rtl'] .container {
   text-align: right;
 }
