@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>X-O Game</title>
+  </head>
+  <body>
+    <div class="message" id="game-message">
+      <p id="message-text"></p>
+      <button id="restart-button">Play Again</button>
+    </div>
+    <div class="container">
+      <div class="language-selector">
+        <label for="language">Language / اللغة: </label>
+        <select
+          name="language"
+          id="language"
+          onchange="changeLanguage(this.value)"
+        >
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+      <button id="start-game">Start New game</button>
+
+      <button id="reset">Reset</button>
+      <div class="score">
+        <p>Player X: <span class="score-x">0</span></p>
+        <p>Player O: <span class="score-o">0</span></p>
+      </div>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
