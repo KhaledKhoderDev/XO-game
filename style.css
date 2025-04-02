@@ -7,7 +7,7 @@
   --color-aqua: #31c4be;
   --border-radius: 1rem;
   --grid-rows: 3;
-  --cell-size: calc(400px / var(--grid-rows));
+  --cell-size: calc(350px / var(--grid-rows));
 }
 
 * {
@@ -151,8 +151,8 @@ html[dir='rtl'] .score p {
   border-radius: var(--border-radius);
   isolation: isolate;
   font-family: 'Rubik Mono One', sans-serif;
-  width: var(--cell-size);
-  height: var(--cell-size);
+  /* width: var(--cell-size);
+  height: var(--cell-size); */
 }
 
 .cell--X {
@@ -259,79 +259,80 @@ select#board-size {
   color: var(--color-aqua);
 }
 
-@media (max-width: 900px) {
-  :root {
-    --cell-size: calc(50vw / var(--grid-rows) - 2rem);
-    --border-radius: 0.8rem;
-  }
-
+@media (max-width: 815px) {
   .container {
     gap: 0.8rem;
   }
 
   .board {
-    gap: 1rem;
+    grid-template-columns: repeat(3, var(--cell-size));
+    gap: 0.5rem;
+    margin: 5rem auto 0;
   }
 
-  .cell {
-    font-size: calc(var(--cell-size) * 0.5);
+  #start-game,
+  #reset {
+    margin-top: 0;
+  }
+
+  .score {
+    margin-top: -0.5rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 375px) {
   :root {
-    --cell-size: calc(50vw / var(--grid-rows));
-    --border-radius: 0.6rem;
+    --cell-size: calc(250px / var(--grid-rows));
   }
 
   .container {
-    gap: 0.9rem;
-    padding: 0.5rem;
+    gap: 2rem;
   }
 
   .board {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, var(--cell-size));
+    gap: 0.3rem;
+    margin: 4rem auto 0;
   }
 
   .cell {
     font-size: calc(var(--cell-size) * 0.5);
+    height: var(--cell-size);
+    width: var(--cell-size);
+  }
+
+  .message p {
+    margin: 0 0 10px;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .message button {
+    font-size: 1.6rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .language-selector {
+    font-size: 1.6rem;
+  }
+
+  .score {
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    align-items: center;
+  }
+  .score p {
+    font-size: 1.4rem;
   }
 
   #start-game,
   #reset {
     padding: 0.6rem 1.2rem;
-    font-size: 1.4rem;
-  }
-
-  .score {
-    max-width: 200px;
     font-size: 1.6rem;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .message {
-    padding: 1rem;
-    width: 90%;
-  }
-
-  .message p {
-    font-size: 1.6rem;
-  }
-
-  .message button {
-    padding: 0.2rem 0.5rem;
-    font-size: 1.2rem;
-  }
-
-  .language-selector {
-    top: 0.5rem;
-    left: 0.5rem;
-    font-size: 1.2rem;
-  }
-
-  .language-selector select {
-    padding: 0.3rem;
-    font-size: 1.4rem;
+    #reset {
+      font-size: 1.8rem;
+    }
   }
 }
